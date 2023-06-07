@@ -1,0 +1,36 @@
+<table class="table table-bordered table-striped">
+    <tr>
+        <th><a href="?order=filial "> Филиал </a></th>
+        <th><a href="?order=company"> Предприятие </a></th>
+        <th><a href="?order=grp"> Проект ГРР </a></th>
+        <th><a href="?order=proj_type"> Тип проекта </a></th>
+        <th><a href="?order=plot"> Участок работ </a></th>
+        <th><a href="?order=phase"> Фаза работ </a></th>
+        <th><a href="?order=lic"> Лицензия </a></th>
+        <th><a href="?order=month"> Месяц </a></th>
+        <th><a href="?order=work_type"> Вид работ </a></th>
+        <th><a href="?order=measure_unit"> Единица измерения </a></th>
+        <th><a href="?order=fact"> Фактические данные </a></th>
+        <th><a href="?order=value"> Значение </a></th>
+    </tr>
+    {% for a in area_list %}
+    <tr>
+        <td>{{a.filial}}</td>
+        <td>{{a.company}}</td>
+        <td>{{a.grp}}</td>
+        <td>{{a.proj_type}}</td>
+        <td>{{a.plot}}</td>
+        <td>{{a.phase}}</td>
+        <td>{{a.lic}}</td>
+        <td>{{a.month}}</td>
+        <td>{{a.work_type.name}}</td>
+        <td>{{a.measure_unit}}</td>
+        <td>{{a.fact}}</td>
+        <td>{{a.value}}</td>
+        <td>
+            <a href="{% url 'area:edit' a.pk%}">Редактировать</a>
+            <a href="{% url 'area:delete' a.pk%}">Удалить</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
